@@ -35,4 +35,4 @@ class SSNHelper {
     }
 }
 
-module.exports = SSNHelper;
+export { SSNHelper }

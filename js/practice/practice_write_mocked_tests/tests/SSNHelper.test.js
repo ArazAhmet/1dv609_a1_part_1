@@ -1,4 +1,6 @@
-const SSNHelper = require('../src/correct/SSNHelper'); 
+import { SSNHelper } from '../src/correct/SSNHelper'; 
+
+
 
 describe('SSNHelpe Tests', () => {
 

@@ -42,4 +42,4 @@ class Password {
   }
 }
 
-module.exports = Password;
+export { Password }

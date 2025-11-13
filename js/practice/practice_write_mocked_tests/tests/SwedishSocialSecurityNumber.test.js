@@ -1,4 +1,4 @@
-const SSN = require('../src/correct/SwedishSocialSecurityNumber'); 
+import { SwedishSocialSecurityNumber } from '../src/correct/SwedishSocialSecurityNumber'; 
 
 
 

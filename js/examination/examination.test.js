@@ -1,7 +1,7 @@
 //You are going to write tests for the examination.js 
 
+// import { Password } from "./examination.js"; // Uncomment when Password class is added
 
-//const Password = require('../src/Password'); // Adjust the path as necessary
 
 describe('Examination tests', () => {
     test('placeholder', () => {

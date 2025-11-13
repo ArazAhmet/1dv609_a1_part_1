@@ -1,45 +1,45 @@
 class Password {
-  #passwordHash;
+  #passwordHash
   constructor(pw) {
-    const trimmedPW = pw; //Bug does not trim spaces
+    const trimmedPW = pw //Bug does not trim spaces
 
     if (this.#isTooShort(trimmedPW)) {
-      throw new Error("Too short password");
+      throw new Error('Too short password')
     }
 
     if (!this.#containsNumber(trimmedPW)) {
-      throw new Error("No number found");
+      throw new Error('No number found')
     }
 
-    this.#passwordHash = this.#simpleHash(trimmedPW);
+    this.#passwordHash = this.#simpleHash(trimmedPW)
   }
 
   #simpleHash(input) {
-    let hash = 7;
+    let hash = 7
     for (let i = 0; i < input.length; i++) {
-      hash = hash * 31 + input.charCodeAt(i);
+      hash = hash * 31 + input.charCodeAt(i)
     }
-    return hash;
+    return hash
   }
 
   #isTooShort(pw) {
-    return pw.length < 12;
+    return pw.length < 12
   }
 
   #containsNumber(text) {
-    return /\d/.test(text);
+    return /\d/.test(text)
   }
 
   getPasswordHash() {
-    return this.#passwordHash;
+    return this.#passwordHash
   }
 
   isPasswordSame(other) {
     if (!(other instanceof Password)) {
-      throw new Error("Invalid argument");
+      throw new Error('Invalid argument')
     }
-    return this.getPasswordHash() === other.getPasswordHash();
+    return this.getPasswordHash() === other.getPasswordHash()
   }
 }
 
-module.exports = Password;
+export { Password }

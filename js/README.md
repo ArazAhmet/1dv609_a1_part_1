@@ -14,9 +14,9 @@ select which version of Password by commenting out/in in the top of the file pas
 
 ```js
 ...
-const Password = require('../src/sut_versions/BugMissingNumberCheck'); 
-//const Password = require('../src/sut_versions/BugWrongMessage'); 
-//const Password = require('../src/Correct'); 
+import { Password } from '../src/sut_versions/BugMissingNumberCheck';
+//import { Password } from '../src/sut_versions/BugWrongMessage'; 
+//import { Password } from '../src/Correct'; 
 ...
 ```
 

@@ -49,4 +49,4 @@ class SwedishSocialSecurityNumber {
 }
 
 // Export Password as main export for backward compatibility, and Helper as a property
-module.exports = SwedishSocialSecurityNumber;
+export { SwedishSocialSecurityNumber }
