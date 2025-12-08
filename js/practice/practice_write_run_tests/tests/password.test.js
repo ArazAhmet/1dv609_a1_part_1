@@ -1,7 +1,7 @@
 
 // Select one of the Password versions to test
 
-import { Password } from '../src/BugDoesNotHash'
+// import { Password } from '../src/BugDoesNotHash'
 // import { Password } from '../src/BugDoesNotTrim'
 // import { Password } from '../src/BugisPasswordAlwaysSame'
 // import { Password } from '../src/BugMissingNumberCheck'
@@ -11,15 +11,80 @@ import { Password } from '../src/BugDoesNotHash'
 // import { Password } from '../src/BugVeryShort'
 // import { Password } from '../src/BugWrongHashingAlgorithm'
 // import { Password } from '../src/BugWrongMessage'
-// import { Password } from '../src/Correct'
+import { Password } from '../src/Correct'
 
 describe('Password class, test suite', () => {
     //put constants here to increase readability
-    const emptyPassword = '';
+    const password = 'fhewofwofewhi8392213fwofew'
+    
+    // test('Password should convert to hashtags', () => {
+    //     const convertToHash = new Password(password)
 
-    test('replace this test with one of your own and add more', () => {
-        expect(true).toBe(true);
-    });
+    //     expect(convertToHash.getPasswordHash()).not.toBe('fhewofwofewhi8392213fwofew')
+    // })
 
-    //Add your tests here
+    // test('Should trim the spaces in the password', () => {
+    //     const noSpaces = new Password(password)
+    //     const spaces = new Password('fhewofwofewhi8392213fwofew ')
+
+    //     expect(noSpaces.isPasswordSame(spaces)).toBeTruthy()
+
+    // })
+
+    // test('Password should not be the same', () => {
+    //     const notTheSame1 = new Password(password)
+    //     const notTheSame2 = new Password('hiehewiwhfiowehfieowjeqp31413312')
+
+    //     expect(notTheSame1.isPasswordSame(notTheSame2)).toBeFalsy()
+
+    // })
+
+    // test('Should throw an error missing numbers', () => {
+    //     const password = () => new Password('ehwfvioewiohweoihwoefeofejqo')
+
+    //     expect(password).toThrow('No number found')
+    // })
+
+    // test('Should throw an error missing password', () => {
+    //     const password = () => new Password('')
+
+    //     expect(password).toThrow('Too short password')
+    // })
+
+    // test('Should have numbers in password', () => {
+    //     const hasNumbers = new Password(password)
+
+    //     expect(hasNumbers).toBeTruthy()
+    // })
+
+    // test('Should throw error password is too short', () => {
+    //     const tooShort = () => new Password('ahsjeuwiq12')
+
+    //     expect(tooShort).toThrow('Too short password')
+    // })
+
+    // test('Should throw error password is too short', () => {
+    //     const tooShort = () => new Password('auwiq12')
+
+    //     expect(tooShort).toThrow('Too short password')
+    // })
+
+    // test('Should not be hashed the same way', () => {
+    //     const hashed = new Password(password)
+    //     const hashed2 = new Password('fhewofwofewhi8392213fwofew2')
+
+    //     expect(hashed.isPasswordSame(hashed2)).toBe(false)
+    // })
+
+    // test('Should give the error message "Too short password"', () => {
+    //     const shortPass = () => new Password('fheofe313')
+
+    //     expect(shortPass).toThrow('Too short password')
+    // })
+
+
+
 });
+
+
+
