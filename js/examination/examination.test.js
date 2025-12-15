@@ -1,11 +1,15 @@
 //You are going to write tests for the examination.js 
 
-// import { Password } from "./examination.js"; // Uncomment when Password class is added
+import { maxOfThree } from "./examination.js"; // Uncomment when Password class is added
 
 
-describe('Examination tests', () => {
-    test('placeholder', () => {
-        expect(false).toBe(false);
+describe(' Test maxOfThree class', () => {
+    test('If a is lower than 0 the test should throw error message "Alla tal måste vara >= 0"', () => {
+        
+        const isALower = () => new maxOfThree(-2, 3, 4)
+
+        expect(isALower).toThrow("Alla tal måste vara >= 0")
+        
     });
 
     
