@@ -11,24 +11,24 @@
 // import { Password } from '../src/BugVeryShort'
 // import { Password } from '../src/BugWrongHashingAlgorithm'
 // import { Password } from '../src/BugWrongMessage'
-// import { Password } from '../src/Correct'
+import { Password } from '../src/Correct'
 // import { User } from '../src/Correct'
 // import { jest } from '@jest/globals'
-import { Password } from "../src/Correct";
+// import { MusicTrack } from "../src/Correct";
 
 describe('Password class, test suite', () => {
     // put constants here to increase readability
-    const password = 'fhewofwofewhi8392213fwofew'
+    const password = '0123456789abc'
     
     test('Password should convert to hashtags', () => {
         const convertToHash = new Password(password)
 
-        expect(convertToHash.getPasswordHash()).not.toBe('fhewofwofewhi8392213fwofew')
+        expect(convertToHash.getPasswordHash()).not.toBe('0123456789abc')
     })
 
     test('Should trim the spaces in the password', () => {
         const noSpaces = new Password(password)
-        const spaces = new Password('fhewofwofewhi8392213fwofew ')
+        const spaces = new Password('0123456789abc ')
 
         expect(noSpaces.isPasswordSame(spaces)).toBeTruthy()
 
@@ -36,14 +36,14 @@ describe('Password class, test suite', () => {
 
     test('Password should not be the same', () => {
         const notTheSame1 = new Password(password)
-        const notTheSame2 = new Password('hiehewiwhfiowehfieowjeqp31413312')
+        const notTheSame2 = new Password('01234567890abcd1w')
 
         expect(notTheSame1.isPasswordSame(notTheSame2)).toBeFalsy()
 
     })
 
     test('Should throw an error missing numbers', () => {
-        const password = () => new Password('ehwfvioewiohweoihwoefeofejqo')
+        const password = () => new Password('abcdefghijklm')
 
         expect(password).toThrow('No number found')
     })
@@ -61,28 +61,34 @@ describe('Password class, test suite', () => {
     })
 
     test('Should throw error password is too short', () => {
-        const tooShort = () => new Password('ahsjeuwiq12')
+        const tooShort = () => new Password('0123456789a')
 
         expect(tooShort).toThrow('Too short password')
     })
 
     test('Should throw error password is too short', () => {
-        const tooShort = () => new Password('auwiq12')
+        const tooShort = () => new Password('012345a')
 
         expect(tooShort).toThrow('Too short password')
     })
 
     test('Should not be hashed the same way', () => {
         const hashed = new Password(password)
-        const hashed2 = new Password('fhewofwofewhi8392213fwofew2')
+        const hashed2 = new Password('01234567890abc')
 
         expect(hashed.isPasswordSame(hashed2)).toBe(false)
     })
 
     test('Should give the error message "Too short password"', () => {
-        const shortPass = () => new Password('fheofe313')
+        const shortPass = () => new Password('01234567a')
 
         expect(shortPass).toThrow('Too short password')
+    })
+
+    test('Should throw error message "Invalid argument" when its comparet to a non-password object', () => {
+        const firstPassword = new Password(password)
+
+        expect(() => firstPassword.isPasswordSame('wrongPw')).toThrow('Invalid argument')
     })
 
     
