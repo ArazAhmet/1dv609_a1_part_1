@@ -10,8 +10,8 @@
 // import { Password } from '../src/BugToShortPassword'
 // import { Password } from '../src/BugVeryShort'
 // import { Password } from '../src/BugWrongHashingAlgorithm'
-// import { Password } from '../src/BugWrongMessage'
-import { Password } from '../src/Correct'
+import { Password } from '../src/BugWrongMessage'
+// import { Password } from '../src/Correct'
 // import { User } from '../src/Correct'
 // import { jest } from '@jest/globals'
 // import { MusicTrack } from "../src/Correct";
@@ -20,7 +20,7 @@ describe('Password class, test suite', () => {
     // put constants here to increase readability
     const password = '0123456789abc'
     
-    test('Password should convert to hashtags', () => {
+    test('Password should be hashed', () => {
         const convertToHash = new Password(password)
 
         expect(convertToHash.getPasswordHash()).not.toBe('0123456789abc')
@@ -74,9 +74,9 @@ describe('Password class, test suite', () => {
 
     test('Should not be hashed the same way', () => {
         const hashed = new Password(password)
-        const hashed2 = new Password('01234567890abc')
+        const hashed2 = new Password('abc0123456789')
 
-        expect(hashed.isPasswordSame(hashed2)).toBe(false)
+        expect(hashed.getPasswordHash()).not.toBe(hashed2.getPasswordHash())
     })
 
     test('Should give the error message "Too short password"', () => {
