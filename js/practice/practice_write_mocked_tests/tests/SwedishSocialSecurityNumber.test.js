@@ -1,5 +1,5 @@
-import { SwedishSocialSecurityNumber } from '../src/correct/SwedishSocialSecurityNumber'
 import { describe, expect, jest, test } from '@jest/globals'
+import { SwedishSocialSecurityNumber } from '../src/correct/SwedishSocialSecurityNumber'
 // import { SwedishSocialSecurityNumber } from '../src/bugs/BuggySwedishSocialSecurityNumberNoLenCheck'
 // import { SwedishSocialSecurityNumber } from '../src/bugs/BuggySwedishSocialSecurityNumberNoTrim'
 // import { SwedishSocialSecurityNumber } from '../src/bugs/BuggySwedishSocialSecutityNumberNoLuhn'
@@ -30,8 +30,14 @@ describe('SwedishSocialSecurityNumber Tests', () => {
         const result = () => new SwedishSocialSecurityNumber(wrongFormat, mockHelper)
         expect(result).toThrow("To short, must be 11 characters")
     })
+    
+    test('Should trim the whitespaces', () => {
+    const result = new SwedishSocialSecurityNumber(rightFormatWithSpaces, mockHelper)
 
-    test('Should trow an error message if the format is incorrect', () => {
+    expect(result.getSerialNumber()).toBe('9876')
+})
+
+    test('Should throw an error message if the format is incorrect', () => {
         mockHelper.isCorrectFormat.mockReturnValue(false)
         const result = () => new SwedishSocialSecurityNumber(wrongFormat, mockHelper)
         expect(result).toThrow("Incorrect format, must be: YYMMDD-XXXX")

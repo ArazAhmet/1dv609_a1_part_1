@@ -10,8 +10,8 @@
 // import { Password } from '../src/BugToShortPassword'
 // import { Password } from '../src/BugVeryShort'
 // import { Password } from '../src/BugWrongHashingAlgorithm'
-import { Password } from '../src/BugWrongMessage'
-// import { Password } from '../src/Correct'
+// import { Password } from '../src/BugWrongMessage'
+import { Password } from '../src/Correct'
 // import { User } from '../src/Correct'
 // import { jest } from '@jest/globals'
 // import { MusicTrack } from "../src/Correct";

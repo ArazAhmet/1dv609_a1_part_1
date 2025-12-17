@@ -1,5 +1,9 @@
-import { SSNHelper } from '../src/correct/SSNHelper'; 
-
+import { SSNHelper } from '../src/correct/SSNHelper';
+// import { SSNHelper } from '../src/bugs/BuggySSNHelperAllowDayUpTo30';
+// import { SSNHelper } from '../src/bugs/BuggySSNHelperAllowMonth0';
+// import { SSNHelper } from '../src/bugs/BuggySSNHelperIncorrectFormat';
+// import { SSNHelper } from "../src/bugs/BuggySSNHelperMessyLuhn";
+// import { SSNHelper } from '../src/bugs/BuggySSNHelperWrongLength';
 
 
 describe('SSNHelper Tests', () => {
@@ -12,24 +16,24 @@ describe('SSNHelper Tests', () => {
     const emptyFormat = " "
 
 
-    test('The format should be the correct length', () => {
+    test('The length of the format should be correct', () => {
         const result = helper.isCorrectLength(rightFormat1)
         expect(result).toBe(true)
     })
-    test('The format should be the correct length', () => {
+    test('The length of the format should be correct', () => {
         const result = helper.isCorrectLength(rightFormat2)
         expect(result).toBe(true)
     })
-    test('The format should be the correct length', () => {
+    test('The format should be correct', () => {
         const result = helper.isCorrectFormat(rightFormat1)
         expect(result).toBe(true)
     })
 
-    test('The format should be the too short which is incorrect format', () => {
+    test('The format should be the too short which is a incorrect format', () => {
         const result = helper.isCorrectLength(tooShortFormat)
         expect(result).toBe(false)
     })
-    test('The format should be the too long which is incorrect format', () => {
+    test('The format should be the too long which is a incorrect format', () => {
         const result = helper.isCorrectLength(tooLongFormat)
         expect(result).toBe(false)
     })
@@ -53,27 +57,27 @@ describe('SSNHelper Tests', () => {
 
         expect(result).toBe(false)
     })
-    test('The format should have a invalid month added', () => {
+    test('Month 0 Should be an invalid month', () => {
         const result = helper.isValidMonth(0)
 
         expect(result).toBe(false)
     })
-    test('The format should have a valid day added', () => {
+    test('Day 31 should be a valid day', () => {
         const result = helper.isValidDay(31)
 
         expect(result).toBe(true)
     })
-    test('The format should have a valid day added', () => {
+    test('Day 1 should be a valid day', () => {
         const result = helper.isValidDay(1)
 
         expect(result).toBe(true)
     })
-    test('The format should have a valid day added', () => {
+    test('Day 32 should be a invalid day', () => {
         const result = helper.isValidDay(32)
 
         expect(result).toBe(false)
     })
-    test('The format should have a valid day added', () => {
+    test('Day 0 should be a invalid day', () => {
         const result = helper.isValidDay(0)
 
         expect(result).toBe(false)
